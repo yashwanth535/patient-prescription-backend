@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <title>Add Data</title>
+</head>
+<body>
+<h1>Add Data to Google Sheets</h1>
+
+<form id="addDataForm">
+  <label for="nameInput">Name:</label>
+  <input type="text" id="nameInput" name="name" required>
+
+  <label for="deptInput">Department Number:</label>
+  <input type="text" id="deptInput" name="department" required>
+
+  <label for="complaintInput">Complaint:</label>
+  <input type="text" id="complaintInput" name="complaint" required>
+
+  <label for="treatment1Input">Treatment 1:</label>
+  <input type="text" id="treatment1Input" name="treatment1" required>
+
+  <label for="treatment2Input">Treatment 2:</label>
+  <input type="text" id="treatment2Input" name="treatment2" required>
+
+  <button type="submit">Add Data</button>
+</form>
+
+<script>
+document.getElementById('addDataForm').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const formData = new FormData(this);
+
+  fetch('/addData', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(Object.fromEntries(formData)),
+  })
+    .then(response => response.json())
+    .then(data => {
+      alert(data.message);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+});
+</script>
+</body>
+</html>
