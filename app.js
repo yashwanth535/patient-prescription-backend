@@ -24,7 +24,7 @@ app.post('/addData', async (req, res) => {
     const credentials = require(path.join(__dirname, 'yashwanth535-0d58c1966500.json'));
     const spreadsheetId = '11Bcscc6m5TXX2awoX_iBuT4DRuGTKwryKliojYtqHyY';
 
-    const { name, department, complaint, treatment1, treatment2 } = req.body;
+    const { name, department, complaint, treatment, prescribed_by,date,time } = req.body;
 
     const auth = new google.auth.GoogleAuth({
       credentials,
@@ -38,7 +38,7 @@ app.post('/addData', async (req, res) => {
       range: 'Sheet1', // Update with your sheet name
       valueInputOption: 'USER_ENTERED',
       resource: {
-        values: [[name, department, complaint, treatment1, treatment2]],
+        values: [[name, department, complaint, treatment, prescribed_by,date,time]],
       },
     });
 
