@@ -22,8 +22,8 @@ app.get('/', (req, res) => {
 app.post('/addData', async (req, res) => {
   try {
     const credentials = require(path.join(__dirname, 'yashwanth535-0d58c1966500.json'));
-    //const spreadsheetId = '11Bcscc6m5TXX2awoX_iBuT4DRuGTKwryKliojYtqHyY';//yashwanthlumia(real)
-    const spreadsheetId = '1NEqp4UbPtwAb8IVavungLEfJ7YSP9tAtLCHRG8m_09s';//yashwanthmunikuntla(login)
+    const spreadsheetId = '11Bcscc6m5TXX2awoX_iBuT4DRuGTKwryKliojYtqHyY';//yashwanthlumia(real)
+    //const spreadsheetId = '1NEqp4UbPtwAb8IVavungLEfJ7YSP9tAtLCHRG8m_09s';//yashwanthmunikuntla(login)
 
     const { name, department, complaint, treatment, prescribed_by,date,time } = req.body;
 
